@@ -88,8 +88,7 @@ class App extends Component {
         event.target.className.includes('expandButton')) {
         // ignore the event
     } else {
-      console.log('set ', rowInfo.node.id);
-        this.setState({selectedNodeId: rowInfo.node.id});
+      this.setState({selectedNodeId: rowInfo.node.id});
     }
   }
 
@@ -100,35 +99,6 @@ class App extends Component {
       searchFocusIndex,
       searchFoundCount,
     } = this.state;
-
-    const alertNodeInfo = ({ node, path, treeIndex }) => {
-      const objectString = Object.keys(node)
-        .map(k => (k === 'children' ? 'children: Array' : `${k}: '${node[k]}'`))
-        .join(',\n   ');
-
-      global.alert(
-        'Info passed to the icon and button generators:\n\n' +
-          `node: {\n   ${objectString}\n},\n` +
-          `path: [${path.join(', ')}],\n` +
-          `treeIndex: ${treeIndex}`
-      );
-    };
-
-    const selectPrevMatch = () =>
-      this.setState({
-        searchFocusIndex:
-          searchFocusIndex !== null
-            ? (searchFoundCount + searchFocusIndex - 1) % searchFoundCount
-            : searchFoundCount - 1,
-      });
-
-    const selectNextMatch = () =>
-      this.setState({
-        searchFocusIndex:
-          searchFocusIndex !== null
-            ? (searchFocusIndex + 1) % searchFoundCount
-            : 0,
-      });
 
     return (
       <div
@@ -209,12 +179,12 @@ class App extends Component {
                 icons: rowInfo.node.isDirectory
                   ? [
                       <div className="flex-center">
-                        <img src={Category} width="20"/>
+                        <img src={Category} width="20" alt="Category" />
                       </div>,
                     ]
                   : [
                       <div className="flex-center">
-                        <img src={Question} width="20"/>
+                        <img src={Question} width="20" alt="Question" />
                       </div>,
                     ]
               }
