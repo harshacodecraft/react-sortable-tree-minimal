@@ -41,6 +41,8 @@ class FileThemeNodeContentRenderer extends Component {
       swapLength,
       swapDepth,
       selectedNodeId,
+      expandedIcon,
+      collapsedIcon,
       treeId, // Not needed, but preserved for other renderers
       isOver, // Not needed, but preserved for other renderers
       parentNode, // Needed for dndManager
@@ -114,7 +116,10 @@ class FileThemeNodeContentRenderer extends Component {
                   treeIndex,
                 })
               }
-            />
+            >
+              {node.expanded && expandedIcon}
+              {!node.expanded && expandedIcon}
+            </button>
           )}
 
         <div

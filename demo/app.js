@@ -173,6 +173,8 @@ class App extends Component {
               const nodeProps = {
                 onClick: (event) => this.nodeClicked(event, rowInfo),
                 selectedNodeId: this.state.selectedNodeId,
+                expandedIcon: (<i className="icon-expanded"/>),
+                collapsedIcon: (<i className="icon-collapsed"/>),
                 icons: rowInfo.node.isDirectory
                   ? [
                       <div className="flex-center">
