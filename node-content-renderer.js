@@ -118,7 +118,7 @@ class FileThemeNodeContentRenderer extends Component {
               }
             >
               {node.expanded && expandedIcon}
-              {!node.expanded && expandedIcon}
+              {!node.expanded && collapsedIcon}
             </button>
           )}
 
