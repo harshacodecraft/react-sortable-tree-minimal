@@ -254,7 +254,7 @@ FileThemeNodeContentRenderer.propTypes = {
   // Drop target
   canDrop: PropTypes.bool,
   isOver: PropTypes.bool.isRequired,
-  selectedNodeId: PropTypes.oneOf([PropTypes.number, PropTypes.string])
+  selectedNodeId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export default FileThemeNodeContentRenderer;

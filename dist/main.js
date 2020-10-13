@@ -572,7 +572,7 @@
             // Drop target
             canDrop: _propTypes2.default.bool,
             isOver: _propTypes2.default.bool.isRequired,
-            selectedNodeId: _propTypes2.default.oneOf([ _propTypes2.default.number, _propTypes2.default.string ])
+            selectedNodeId: _propTypes2.default.oneOfType([ _propTypes2.default.number, _propTypes2.default.string ])
         }, exports.default = FileThemeNodeContentRenderer;
     }, /* 6 */
     /***/
