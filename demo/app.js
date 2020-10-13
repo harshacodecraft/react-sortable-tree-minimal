@@ -12,7 +12,6 @@ class App extends Component {
     this.state = {
       searchString: '',
       searchFocusIndex: 0,
-      searchFoundCount: null,
       treeData: [
         { title: '.gitignore', id:1 },
         { title: 'package.json', id: 2 },
@@ -164,7 +163,6 @@ class App extends Component {
             random=""
             searchFinishCallback={matches =>
               this.setState({
-                searchFoundCount: matches.length,
                 searchFocusIndex:
                   matches.length > 0 ? searchFocusIndex % matches.length : 0,
               })
