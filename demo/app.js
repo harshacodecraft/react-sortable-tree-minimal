@@ -97,7 +97,6 @@ class App extends Component {
       treeData,
       searchString,
       searchFocusIndex,
-      searchFoundCount,
     } = this.state;
 
     return (
