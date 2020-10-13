@@ -1,0 +1,14 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.my-tree .selected-node {
+  background-color: red;
+}
