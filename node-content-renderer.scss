@@ -72,15 +72,21 @@
  * Nodes matching the search conditions are highlighted
  */
 .rowSearchMatch {
-  box-shadow: inset 0 -7px 7px -3px #0080ff;
+  color: #00aae5;
+  font-weight: 700;
+  * {
+    &:before {
+      color:  #00aae5;
+    }
+  }
 }
 
 /**
  * The node that matches the search conditions and is currently focused
  */
-.rowSearchFocus {
-  box-shadow: inset 0 -7px 7px -3px #fc6421;
-}
+// .rowSearchFocus {
+//   box-shadow: inset 0 -7px 7px -3px #fc6421;
+// }
 
 %rowItem {
   display: inline-block;

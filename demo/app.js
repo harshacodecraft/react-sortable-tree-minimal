@@ -102,6 +102,17 @@ class App extends Component {
       <div
         style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
       >
+        <label htmlFor="find-box">
+              Search:&nbsp;
+              <input
+                id="find-box"
+                type="text"
+                value={searchString}
+                onChange={event =>
+                  this.setState({ searchString: event.target.value })
+                }
+              />
+            </label>
         {/* <div style={{ flex: '0 0 auto', padding: '0 15px' }}>
           <h3>File Explorer Theme</h3>
           <button onClick={this.expandAll}>Expand All</button>
