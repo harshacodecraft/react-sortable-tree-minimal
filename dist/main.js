@@ -467,7 +467,7 @@
                         style: {
                             height: "100%"
                         },
-                        className: "" + (node.id.toString() === +selectedNodeId.toString() ? _nodeContentRenderer2.default.selectedNode : "")
+                        className: "" + (node.id.toString() === selectedNodeId.toString() ? _nodeContentRenderer2.default.selectedNode : "")
                     }, otherProps), toggleChildrenVisibility && node.children && node.children.length > 0 && _react2.default.createElement("button", {
                         type: "button",
                         "aria-label": node.expanded ? "Collapse" : "Expand",
