@@ -468,7 +468,7 @@
                             height: "100%"
                         },
                         className: "" + (+node.id == +selectedNodeId ? _nodeContentRenderer2.default.selectedNode : "")
-                    }, otherProps), toggleChildrenVisibility && node.children && node.children.length > 0 && _react2.default.createElement("button", {
+                    }, otherProps), console.log("node id", node.id), console.log("selected node id", selectedNodeId), console.log(+node.id == +selectedNodeId), toggleChildrenVisibility && node.children && node.children.length > 0 && _react2.default.createElement("button", {
                         type: "button",
                         "aria-label": node.expanded ? "Collapse" : "Expand",
                         className: node.expanded ? _nodeContentRenderer2.default.collapseButton : _nodeContentRenderer2.default.expandButton,

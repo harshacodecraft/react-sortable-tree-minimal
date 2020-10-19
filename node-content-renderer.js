@@ -97,6 +97,9 @@ class FileThemeNodeContentRenderer extends Component {
 
     const nodeContent = (
       <div style={{ height: '100%' }} className={`${+node.id === +selectedNodeId ? styles.selectedNode: ''}`} {...otherProps}>
+        {console.log('node id', node.id)}
+        {console.log('selected node id', selectedNodeId)}
+        {console.log(+node.id === +selectedNodeId)}
         {toggleChildrenVisibility &&
           node.children &&
           node.children.length > 0 && (
