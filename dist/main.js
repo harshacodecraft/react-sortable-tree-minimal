@@ -439,7 +439,7 @@
             return _inherits(FileThemeNodeContentRenderer, _Component), _createClass(FileThemeNodeContentRenderer, [ {
                 key: "handleChange",
                 value: function(e) {
-                    e.preventDefault, this.props.handleCheckboxChange(e, node);
+                    e.preventDefault, this.props.handleCheckboxChange(e, this.props.node);
                 }
             }, {
                 key: "render",
@@ -479,7 +479,7 @@
                     }, otherProps), withCheckbox && _react2.default.createElement("input", {
                         type: "checkbox",
                         checked: node.isChecked,
-                        onChange: handleChange
+                        onChange: this.handleChange
                     }), toggleChildrenVisibility && node.children && node.children.length > 0 && _react2.default.createElement("button", {
                         type: "button",
                         "aria-label": node.expanded ? "Collapse" : "Expand",

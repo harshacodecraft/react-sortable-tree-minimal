@@ -20,7 +20,7 @@ class FileThemeNodeContentRenderer extends Component {
   }
   handleChange(e) {
     e.preventDefault;
-    this.props.handleCheckboxChange(e, node)
+    this.props.handleCheckboxChange(e, this.props.node);
   }
   render() {
     const {
@@ -107,7 +107,7 @@ class FileThemeNodeContentRenderer extends Component {
 
     const nodeContent = (
       <div style={{ height: '100%' }} className={`${node && node.id && node.id.toString() === selectedNodeId && selectedNodeId.toString() ? styles.selectedNode : ''}`} {...otherProps}>
-        {withCheckbox && <input type="checkbox" checked={node.isChecked} onChange={handleChange} />}
+        {withCheckbox && <input type="checkbox" checked={node.isChecked} onChange={this.handleChange} />}
         {toggleChildrenVisibility &&
           node.children &&
           node.children.length > 0 && (
