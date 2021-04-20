@@ -47,6 +47,7 @@ class FileThemeNodeContentRenderer extends Component {
       isOver, // Not needed, but preserved for other renderers
       parentNode, // Needed for dndManager
       rowDirection,
+      handleCheckboxChange,
       ...otherProps
     } = this.props;
 
@@ -96,7 +97,8 @@ class FileThemeNodeContentRenderer extends Component {
     });
 
     const nodeContent = (
-      <div style={{ height: '100%' }} className={`${node.id.toString() === selectedNodeId.toString() ? styles.selectedNode: ''}`} {...otherProps}>
+      <div style={{ height: '100%' }} className={`${node && node.id && node.id.toString() === selectedNodeId && selectedNodeId.toString() ? styles.selectedNode : ''}`} {...otherProps}>
+        <input type="checkbox" checked={node.isChecked} onChange={(event) => handleCheckboxChange(event, node)} />
         {toggleChildrenVisibility &&
           node.children &&
           node.children.length > 0 && (
@@ -168,10 +170,10 @@ class FileThemeNodeContentRenderer extends Component {
                     <span className={styles.rowTitle}>
                       {typeof nodeTitle === 'function'
                         ? nodeTitle({
-                            node,
-                            path,
-                            treeIndex,
-                          })
+                          node,
+                          path,
+                          treeIndex,
+                        })
                         : nodeTitle}
                     </span>
                   </div>

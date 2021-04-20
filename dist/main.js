@@ -437,8 +437,8 @@
             return _inherits(FileThemeNodeContentRenderer, _Component), _createClass(FileThemeNodeContentRenderer, [ {
                 key: "render",
                 value: function() {
-                    var _props = this.props, scaffoldBlockPxWidth = _props.scaffoldBlockPxWidth, toggleChildrenVisibility = _props.toggleChildrenVisibility, connectDragPreview = _props.connectDragPreview, connectDragSource = _props.connectDragSource, isDragging = _props.isDragging, canDrop = _props.canDrop, canDrag = _props.canDrag, node = _props.node, title = _props.title, draggedNode = _props.draggedNode, path = _props.path, treeIndex = _props.treeIndex, isSearchMatch = _props.isSearchMatch, isSearchFocus = _props.isSearchFocus, icons = _props.icons, buttons = _props.buttons, className = _props.className, style = _props.style, didDrop = _props.didDrop, lowerSiblingCounts = _props.lowerSiblingCounts, listIndex = _props.listIndex, swapFrom = _props.swapFrom, swapLength = _props.swapLength, swapDepth = _props.swapDepth, selectedNodeId = _props.selectedNodeId, expandedIcon = _props.expandedIcon, collapsedIcon = _props.collapsedIcon, otherProps = (_props.treeId, 
-                    _props.isOver, _props.parentNode, _props.rowDirection, _objectWithoutProperties(_props, [ "scaffoldBlockPxWidth", "toggleChildrenVisibility", "connectDragPreview", "connectDragSource", "isDragging", "canDrop", "canDrag", "node", "title", "draggedNode", "path", "treeIndex", "isSearchMatch", "isSearchFocus", "icons", "buttons", "className", "style", "didDrop", "lowerSiblingCounts", "listIndex", "swapFrom", "swapLength", "swapDepth", "selectedNodeId", "expandedIcon", "collapsedIcon", "treeId", "isOver", "parentNode", "rowDirection" ])), nodeTitle = title || node.title, isDraggedDescendant = draggedNode && isDescendant(draggedNode, node), isLandingPadActive = !didDrop && isDragging, scaffold = [];
+                    var _props = this.props, scaffoldBlockPxWidth = _props.scaffoldBlockPxWidth, toggleChildrenVisibility = _props.toggleChildrenVisibility, connectDragPreview = _props.connectDragPreview, connectDragSource = _props.connectDragSource, isDragging = _props.isDragging, canDrop = _props.canDrop, canDrag = _props.canDrag, node = _props.node, title = _props.title, draggedNode = _props.draggedNode, path = _props.path, treeIndex = _props.treeIndex, isSearchMatch = _props.isSearchMatch, isSearchFocus = _props.isSearchFocus, icons = _props.icons, buttons = _props.buttons, className = _props.className, style = _props.style, didDrop = _props.didDrop, lowerSiblingCounts = _props.lowerSiblingCounts, listIndex = _props.listIndex, swapFrom = _props.swapFrom, swapLength = _props.swapLength, swapDepth = _props.swapDepth, selectedNodeId = _props.selectedNodeId, expandedIcon = _props.expandedIcon, collapsedIcon = _props.collapsedIcon, handleCheckboxChange = (_props.treeId, 
+                    _props.isOver, _props.parentNode, _props.rowDirection, _props.handleCheckboxChange), otherProps = _objectWithoutProperties(_props, [ "scaffoldBlockPxWidth", "toggleChildrenVisibility", "connectDragPreview", "connectDragSource", "isDragging", "canDrop", "canDrag", "node", "title", "draggedNode", "path", "treeIndex", "isSearchMatch", "isSearchFocus", "icons", "buttons", "className", "style", "didDrop", "lowerSiblingCounts", "listIndex", "swapFrom", "swapLength", "swapDepth", "selectedNodeId", "expandedIcon", "collapsedIcon", "treeId", "isOver", "parentNode", "rowDirection", "handleCheckboxChange" ]), nodeTitle = title || node.title, isDraggedDescendant = draggedNode && isDescendant(draggedNode, node), isLandingPadActive = !didDrop && isDragging, scaffold = [];
                     lowerSiblingCounts.forEach(function(lowerSiblingCount, i) {
                         if (scaffold.push(_react2.default.createElement("div", {
                             key: "pre_" + (1 + i),
@@ -467,8 +467,14 @@
                         style: {
                             height: "100%"
                         },
-                        className: "" + (node.id.toString() === selectedNodeId.toString() ? _nodeContentRenderer2.default.selectedNode : "")
-                    }, otherProps), toggleChildrenVisibility && node.children && node.children.length > 0 && _react2.default.createElement("button", {
+                        className: "" + (node && node.id && node.id.toString() === selectedNodeId && selectedNodeId.toString() ? _nodeContentRenderer2.default.selectedNode : "")
+                    }, otherProps), _react2.default.createElement("input", {
+                        type: "checkbox",
+                        checked: node.isChecked,
+                        onChange: function(event) {
+                            return handleCheckboxChange(event, node);
+                        }
+                    }), toggleChildrenVisibility && node.children && node.children.length > 0 && _react2.default.createElement("button", {
                         type: "button",
                         "aria-label": node.expanded ? "Collapse" : "Expand",
                         className: node.expanded ? _nodeContentRenderer2.default.collapseButton : _nodeContentRenderer2.default.expandButton,

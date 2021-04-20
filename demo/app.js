@@ -13,7 +13,7 @@ class App extends Component {
       searchString: '',
       searchFocusIndex: 0,
       treeData: [
-        { title: '.gitignore', id:1 },
+        { title: '.gitignore', id: 1, isChecked: true },
         { title: 'package.json', id: 2 },
         {
           title: 'src',
@@ -21,7 +21,7 @@ class App extends Component {
           expanded: true,
           id: 3,
           children: [
-            { title: 'styles.css', id: 4 },
+            { title: 'styles.css', id: 4, isChecked: true },
             { title: 'index.js', id: 5 },
             { title: 'reducers.js', id: 6 },
             { title: 'actions.js', id: 7 },
@@ -84,10 +84,10 @@ class App extends Component {
 
   nodeClicked(event, rowInfo) {
     if (event.target.className.includes('collapseButton') ||
-        event.target.className.includes('expandButton')) {
-        // ignore the event
+      event.target.className.includes('expandButton')) {
+      // ignore the event
     } else {
-      this.setState({selectedNodeId: rowInfo.node.id});
+      this.setState({ selectedNodeId: rowInfo.node.id });
     }
   }
 
@@ -103,16 +103,16 @@ class App extends Component {
         style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
       >
         <label htmlFor="find-box">
-              Search:&nbsp;
+          Search:&nbsp;
               <input
-                id="find-box"
-                type="text"
-                value={searchString}
-                onChange={event =>
-                  this.setState({ searchString: event.target.value })
-                }
-              />
-            </label>
+            id="find-box"
+            type="text"
+            value={searchString}
+            onChange={event =>
+              this.setState({ searchString: event.target.value })
+            }
+          />
+        </label>
         {/* <div style={{ flex: '0 0 auto', padding: '0 15px' }}>
           <h3>File Explorer Theme</h3>
           <button onClick={this.expandAll}>Expand All</button>
@@ -184,19 +184,19 @@ class App extends Component {
               const nodeProps = {
                 onClick: (event) => this.nodeClicked(event, rowInfo),
                 selectedNodeId: this.state.selectedNodeId,
-                expandedIcon: (<i className="icon-expanded"/>),
-                collapsedIcon: (<i className="icon-collapsed"/>),
+                expandedIcon: (<i className="icon-expanded" />),
+                collapsedIcon: (<i className="icon-collapsed" />),
                 icons: rowInfo.node.isDirectory
                   ? [
-                      <div className="flex-center">
-                        <img src={Category} width="20" alt="Category" />
-                      </div>,
-                    ]
+                    <div className="flex-center">
+                      <img src={Category} width="20" alt="Category" />
+                    </div>,
+                  ]
                   : [
-                      <div className="flex-center">
-                        <img src={Question} width="20" alt="Question" />
-                      </div>,
-                    ]
+                    <div className="flex-center">
+                      <img src={Question} width="20" alt="Question" />
+                    </div>,
+                  ]
               }
               return nodeProps;
             }}
