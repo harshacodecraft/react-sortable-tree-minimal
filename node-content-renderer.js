@@ -14,6 +14,14 @@ function isDescendant(older, younger) {
 
 // eslint-disable-next-line react/prefer-stateless-function
 class FileThemeNodeContentRenderer extends Component {
+  constructor() {
+    super();
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    e.preventDefault;
+    this.props.handleCheckboxChange(e, node)
+  }
   render() {
     const {
       scaffoldBlockPxWidth,
@@ -47,6 +55,7 @@ class FileThemeNodeContentRenderer extends Component {
       isOver, // Not needed, but preserved for other renderers
       parentNode, // Needed for dndManager
       rowDirection,
+      withCheckbox,
       handleCheckboxChange,
       ...otherProps
     } = this.props;
@@ -98,7 +107,7 @@ class FileThemeNodeContentRenderer extends Component {
 
     const nodeContent = (
       <div style={{ height: '100%' }} className={`${node && node.id && node.id.toString() === selectedNodeId && selectedNodeId.toString() ? styles.selectedNode : ''}`} {...otherProps}>
-        <input type="checkbox" checked={node.isChecked} onChange={(event) => handleCheckboxChange(event, node)} />
+        {withCheckbox && <input type="checkbox" checked={node.isChecked} onChange={handleChange} />}
         {toggleChildrenVisibility &&
           node.children &&
           node.children.length > 0 && (
