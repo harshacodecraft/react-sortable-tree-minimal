@@ -19,7 +19,7 @@ class FileThemeNodeContentRenderer extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
-    e.preventDefault;
+    e.preventDefault();
     this.props.handleCheckboxChange(e, this.props.node);
   }
   render() {

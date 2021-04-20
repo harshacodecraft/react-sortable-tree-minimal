@@ -439,7 +439,7 @@
             return _inherits(FileThemeNodeContentRenderer, _Component), _createClass(FileThemeNodeContentRenderer, [ {
                 key: "handleChange",
                 value: function(e) {
-                    e.preventDefault, this.props.handleCheckboxChange(e, this.props.node);
+                    e.preventDefault(), this.props.handleCheckboxChange(e, this.props.node);
                 }
             }, {
                 key: "render",
