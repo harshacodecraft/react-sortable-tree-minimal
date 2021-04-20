@@ -471,6 +471,7 @@
                             }));
                         }
                     });
+                    // console.log('node ', node);
                     var nodeContent = _react2.default.createElement("div", _extends({
                         style: {
                             height: "100%"
@@ -478,6 +479,7 @@
                         className: "" + (node && node.id && node.id.toString() === selectedNodeId && selectedNodeId.toString() ? _nodeContentRenderer2.default.selectedNode : "")
                     }, otherProps), withCheckbox && _react2.default.createElement("input", {
                         type: "checkbox",
+                        className: "node-checkbox",
                         checked: node.isChecked,
                         onChange: this.handleChange
                     }), toggleChildrenVisibility && node.children && node.children.length > 0 && _react2.default.createElement("button", {

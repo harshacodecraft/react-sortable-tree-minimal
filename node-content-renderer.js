@@ -104,10 +104,18 @@ class FileThemeNodeContentRenderer extends Component {
         );
       }
     });
-
+    // console.log('node ', node);
     const nodeContent = (
       <div style={{ height: '100%' }} className={`${node && node.id && node.id.toString() === selectedNodeId && selectedNodeId.toString() ? styles.selectedNode : ''}`} {...otherProps}>
-        {withCheckbox && <input type="checkbox" checked={node.isChecked} onChange={this.handleChange} />}
+        {
+          withCheckbox && (
+            <input
+              type="checkbox"
+              className="node-checkbox"
+              checked={node.isChecked}
+              onChange={this.handleChange}
+            />
+          )}
         {toggleChildrenVisibility &&
           node.children &&
           node.children.length > 0 && (
