@@ -351,3 +351,7 @@ $highlight-line-size: 6px; // Make it an even number for clean rendering
     color: #FFF;
   }
 }
+
+input[type="checkbox"] {
+  position: absolute;
+}
